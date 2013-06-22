@@ -1,0 +1,75 @@
+<html>
+
+<head>
+
+    <title>{{ bank }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="eWallet, online payment nepal, online banking" />
+    <meta name="description" content="e-Wallet is a online money wallet. It helps you to store your cash money in your e-Wallet and spend it in any online payment sites." />
+    <link rel ="shortcut icon" href="/static/images/logo.png"/>
+    <link href="/static/css/ewhomestyle.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/screen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div id="page_wrapper" >  {# First layer- Paints the whole page with lowermost background. #}
+    <div id="templatemo_wrapper_outer"> {# second layer- paints with footer bar #}
+        <div id="templatemo_wrapper"> {# Third layer - the content layer between the margin #}
+
+<body>
+
+
+
+<b>
+	Welcome {{ user }}.
+    <br/>                   
+    Your balance is Rs. {{ bal }}
+</b>
+<br/>
+<font class="" color = "#00008b"></font>
+<form method = "post" >
+<br>
+    <div class="right_align">
+        <input type ="submit" class="btn" name="logout" value="Log Out">
+    </div>
+
+    <br/>
+    Transfer Balance to e-Wallet.
+    <br>
+<label>
+eW Username:
+</label><input type="text"  name="ewusername" class="">
+    <br/>
+    <label>
+Transfer Amount:
+    </label> <input type="text"  name="amount" >
+   <br/>
+<div class="medtab">
+<input type = "submit" class="btn" name= "transfer_button" value = "Transfer">
+
+{% if success %}
+Request Successful.
+{% endif %}
+<br/>
+
+</form>
+{% ifequal error 0 %}
+    Request Successful!
+    {% else %}
+    <span style="color: red">
+{{ error }}
+    </span>
+{% endifequal %}
+        </div>
+
+</div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+

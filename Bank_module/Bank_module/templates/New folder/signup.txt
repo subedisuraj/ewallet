@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Sign Up</title>
+</head>
+<style type="text/css">
+.check{
+	position:absolute;
+	    top:150px
+	    right:100px;
+	left: 424px;
+	top: 131px;
+	width: 498px;
+	height: 114px;
+	   }
+	   
+</style>
+<style type="text/css">
+<!--
+.newClass1 {
+	position:absolute;
+	left:5px;
+	top:80px;
+	height:58px;
+	z-index:1;
+	width: 199px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 210px;
+<!..	border:1px solid black >
+	
+}
+-->
+</style>
+<body>
+<div class="newClass1"><a href="http://localhost:8000/home/"><img src="/static/ewallet.jpg" width="200" height="50" border="0"/></a></div></p>
+<div class="check">
+<style type="text/css">
+<!--
+.style1 {font-family: Impact} 
+a {text-decoration:none}
+-->
+</style>
+<center>
+<h1 class="style1">
+<a href="http://localhost:8000/home/">Home</a>&nbsp;&nbsp;<a href="http://localhost:8000/home/">AboutUs</a>&nbsp;&nbsp;
+<a href="http://localhost:8000/home/">ContactUs</a>&nbsp;<a href="http://localhost:8000/home/">Nepal</a></h1
+</center>
+</div>
+</body>
+</html>

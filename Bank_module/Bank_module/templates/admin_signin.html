@@ -1,0 +1,39 @@
+<html>
+<head>
+
+    <title>{{ bank }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="eWallet, online payment nepal, online banking" />
+    <meta name="description" content="e-Wallet is a online money wallet. It helps you to store your cash money in your e-Wallet and spend it in any online payment sites." />
+    <link rel ="shortcut icon" href="/static/images/logo.png"/>
+    <link href="/static/css/ewhomestyle.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/screen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div id="page_wrapper" >  {# First layer- Paints the whole page with lowermost background. #}
+    <div id="templatemo_wrapper_outer"> {# second layer- paints with footer bar #}
+        <div id="templatemo_wrapper"> {# Third layer - the content layer between the margin #}
+<br/>
+        <br/>
+        <br/>
+        
+ <div clss="center_align"><b> {{ bank }}||Admin</b></div>
+<br/>
+<form method = "post">
+    Username: <input type ="text" name ="username">
+    {% if error %}
+        <font color="red"> Username and password didn't match.</font>
+    {% endif %}
+    <br>
+    Password: <input type= "password" name ="password">
+    <br>
+<div class="smalltab">
+    <input type="submit" name = "sign_button" class="btn" value ="Sign in">
+</div>
+    <br>
+
+</body>
+
+</html>

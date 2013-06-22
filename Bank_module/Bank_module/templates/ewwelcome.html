@@ -1,0 +1,826 @@
+<!DOCTYPE html >
+<html>
+<head>
+
+    <title>
+        e-Wallet
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="eWallet, online payment nepal, online banking" />
+    <meta name="description" content="e-Wallet is a online money wallet. It helps you to store your cash money in your e-Wallet and spend it in any online payment sites." />
+    <link rel ="shortcut icon" href="/static/images/logo.png"/>
+    <link href="/static/css/ewhomestyle.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/screen.css" rel="stylesheet" type="text/css" />
+
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #button {
+            padding: 0;
+        }
+        #button li {
+            display: inline;
+        }
+
+        .listheight1 {
+            text-transform: uppercase;
+            height: 30px;
+        }
+
+        .listheight2 {
+            height: 20px;
+        }
+        .listheight1:hover {
+            background-color: #d8e6ff;
+        }
+
+        .listheight2:hover {
+            background-color: #1db5e0;
+        }
+        .selected {
+            color: #fdf8ff;
+        }
+
+        #button li a {
+            /*border-style: solid;*/
+            /*border-width: 1px;*/
+            /*border-color: #BABABA #BABABA #BABABA #FFF;*/
+            width : 290px;
+            /*height: 30px;*/
+            font-family: Arial;
+            /*text-transform: uppercase;*/
+            /*font-size:11px;*/
+            font: bold 12px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color:#444;
+            text-decoration: none;
+            float:left;
+            padding: 10px;
+            /*background-color: #fdffff;*/
+            /*color: #fff;*/
+            /*box-shadow: 0 1px rgba(255,255,255,1) inset;*/
+            /*-webkit-box-shadow: 0 1px rgba(255,255,255,1) inset;*/
+            /*background: #F7F7F7; *//* Old browsers */
+            /*background: -moz-linear-gradient(top, #F7F7F7 0%, #EDEDED 100%); *//* FF3.6+ */
+            /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F7F7F7), color-stop(100%,#EDEDED)); *//* Chrome,Safari4+ */
+            /*background: -webkit-linear-gradient(top, #F7F7F7 0%,#EDEDED 100%); *//* Chrome10+,Safari5.1+ */
+            /*background: -o-linear-gradient(top, #F7F7F7 0%,#EDEDED 100%); *//* Opera 11.10+ */
+            /*background: -ms-linear-gradient(top, #F7F7F7 0%,#EDEDED 100%); *//* IE10+ */
+            /*background: linear-gradient(top, #F7F7F7 0%,#EDEDED 100%); *//* W3C */
+            /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F7F7F7', endColorstr='#EDEDED',GradientType=0 ); *//* IE6-9 */
+
+
+        }
+        #button li a:hover {
+            /*background-color: #2586d7;*/
+            margin-top:-2px;
+            padding-bottom:12px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function altRows(id){
+            if(document.getElementsByTagName){
+
+                var table = document.getElementById(id);
+                var rows = table.getElementsByTagName("tr");
+
+                for(i = 0; i < rows.length; i++){
+                    if(i % 2 == 0){
+                        rows[i].className = "evenrowcolor";
+                    }else{
+                        rows[i].className = "oddrowcolor";
+                    }
+                }
+            }
+        }
+        window.onload=function(){
+            altRows('alternatecolor');
+        }
+    </script>
+
+
+    <style type="text/css">
+        table.altrowstable {
+            /*font-family: "Times New Roman";*/
+            /*font-size:11px;*/
+            color:#333333;
+            border-width: 3px;
+            border-color: #a9c6c9;
+            border-collapse: collapse;
+        }
+        table.altrowstable th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9c6c9;
+        }
+        table.altrowstable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9c6c9;
+        }
+        .oddrowcolor{
+            background-color: #8bb2e3;
+        }
+        .evenrowcolor{
+            background-color: #2ce4ff;
+        }
+    </style>
+
+
+
+
+</head>
+<body>
+
+<div id="in_page_wrapper" >
+<div id="templatemo_wrapper">
+<div id="temmplatmeo_header">
+<div id="site_title">
+    <a href="/project/ewallet/home/" target="_parent">
+        <img src="/static/images/eww.png" alt="Free Photo" />
+        {# e-Wallet logo here #}
+    </a>
+</div>
+
+<div class="right_align">
+        <a href="/project/ewallet/{{ user }}/">
+        <span style="color: #fdffff; "> <b>{{ usersname }}</b></span>
+        </a>
+
+        <form method="POST">
+
+            <input type ="submit"  name="logout" value="Log Out">
+        </form>
+
+    <span style="color: #fdffff; "> Balance: Rs {{ balance }}</span>
+
+    </div>
+
+</div>
+
+
+<br/>
+<br/>
+{#<br/>#}
+
+{##}
+
+{#    <div id="templatemo_big_menu">#}
+{#        big menu bar#}
+{#    <nav id="navigation">#}
+        <ul id="button" >
+{#<nav id="navigation">#}
+{#            <span style="color: #000000; ">#}
+            <li class="listcap" ><a class="listheight1" href="/project/ewallet/{{ user }}/account" {% ifequal menu "account"  %} class="current"{% endifequal %}>My Account</a></li>
+            <li class="listcap"><a class="listheight1" href="/project/ewallet/{{ user }}/transfer"{% ifequal menu "transfer"  %} class="current"{% endifequal %}>Fund Transfer</a></li>
+            <li class="listcap"><a class="listheight1" href="/project/ewallet/{{ user }}/payment" {% ifequal menu "payment"  %} class="current"{% endifequal %} >Payments</a></li>
+{#</nav>#}
+{#</span>#}
+        </ul>
+{#    </nav>#}
+{#    </div>#}
+{#<div id="container" ">#}
+
+    <!-- begin navigation -->
+{#    <nav id="navigation">#}
+{#        <ul>#}
+{#            <li><a href="#">Home</a></li>#}
+{#            <li><a href="#">Services</a></li>#}
+{#            <li><a href="#">Portfolio</a></li>#}
+{##}
+{#        </ul>#}
+{#    </nav>#}
+    <!-- end navigation -->
+
+{#</div>#}
+
+    {% ifequal menu "account" %}
+{#        <div id="templatemo_menu">#}
+{#        <nav id="navigation">#}
+{#            <ul>#}
+        <ul id="button" >
+            <li class="listwidth1" ><a class="listheight2" href="/project/ewallet/{{ user }}/statements" >Statements</a></li>
+                <li class="listwidth1"  ><a class="listheight2" href="/project/ewallet/{{ user }}/profile" >Profile</a></li>
+                <li class="listwidth1" ><a class="listheight2"  href="/project/ewallet/{{ user }}/changepass">Change Password</a></li>
+
+</ul>
+{#            </ul>#}
+        </nav>
+{#</div>#}
+
+    {% endifequal %}
+    {% ifequal menu "payment" %}
+{#        <div id="templatemo_menu">#}
+{#        <nav id="navigation">#}
+        <ul id="button" >
+
+            <li><a class="listheight2" href="/project/ewallet/{{ user }}/mpayment" >Pay Adsl Bills</a></li>
+{#            <li><a class="listheight2" href="/project/ewallet/{{ user }}/buycards" >Buy Recharge Cards</a></li>#}
+            <li><a class="listheight2" href="/project/ewallet/{{ user }}/payonline" >Pay Online Bills</a></li>
+
+
+            </ul>
+{#</nav>#}
+{#        </div>#}
+
+    {% endifequal %}
+    {% ifequal menu "transfer" %}
+{#        <div id="templatemo_menu">#}
+{#        <nav id="navigation">#}
+        <ul id="button" >
+
+                <li><a class="listheight2"  href="/project/ewallet/{{ user }}/top" >Topup eW Balance</a></li>
+                <li><a class="listheight2" href="/project/ewallet/{{ user }}/tof" >Tranfer balance to friend</a></li>
+{#                <li><a class="listheight2" href="/project/ewallet/{{ user }}/top" >Topup eW Balance</a></li>#}
+{#                <li><a class="listheight2" href="/project/ewallet/{{ user }}/tof" >Tranfer balance to friend</a></li>#}
+
+                {#                <li><a href="/project/ewallet/home/">login</a></li>#}
+                {#                <li><a href="/project/ewallet/contact/">contact</a></li>#}
+
+            </ul>
+{#</nav>#}
+{#        </div>#}
+
+    {% endifequal %}
+
+        <br/>
+<br>
+<br>
+<br>
+    <div id="upper_layer">
+    <br/>
+    {% ifequal submenu "statement" %}
+        <form method = "POST" class ="effect">
+            <div class= "center_align">
+            Statements per page:
+            {{ form.stat_pp }}
+{#           <div class= "right_align">#}
+            Sorted by :
+            {{ form.sort }}
+{#        </div>#}
+
+
+
+<br/>
+            From:
+            {{ form.fyear }}
+
+
+            {{ form.fmth }}
+            {{ form.fday }}
+
+
+                To:
+                {{ form.tyear }}
+                {{ form.tmth }}
+                {{ form.tday }}
+
+            </div>
+        <div class ="right_align">
+            <input type="submit" name="show" class="btn" value="Show" >
+        </div>
+           
+
+
+
+
+
+
+{#        </form>#}
+
+
+            <table class="altrowstable" id="alternatecolor">
+            <tr>
+                <th class="span2">
+                   Transaction Partner
+                </th>
+                <th class ="span2">
+                    Description
+                </th>
+                <th class ="span2">
+                   Date
+                </th>
+                <th class ="span2">
+                   Time
+                </th>
+                <th class ="span2">
+                    Amount
+                </th>
+            </tr>
+            {% for j in statements %}
+
+                <tr>
+
+                    <td>
+                        {{ j.transaction_partner  }}
+                    </td>
+                    <td>
+                        {{ j.statement_des   }}
+                    </td>
+                    <td>
+                        {{ j.date }}
+                    </td>
+                    <td>
+                        {{ j.time  }}
+                    </td>
+                    <td>
+                        {{ j.amount  }}
+                    </td>
+
+                </tr>
+            {% endfor %}
+        </table>
+{#        <form method ="POST">#}
+        <div class="right_align">
+        <button name="prev" value="<" class="btn">
+            <
+        </button>
+         Page {{ var.page }}
+        <button name="next" value=">" class="btn" >
+            >
+        </button>
+        </div>
+        </form>
+    {% endifequal %}
+
+
+
+    {% ifequal submenu "profile" %}
+        {% ifequal subprofilemenu "view" %}
+            <form method = "post" class="effect ">
+                <div class="right_align" >
+                    <input type ="submit" class="btn" name="edit" value="Edit">
+                </div>
+<fieldset>
+
+
+       <legend><b>General</b></legend>
+
+       <br/>
+
+       <label><b> Name: </b></label> {{ users.fname }} {{ users.mname }} {{ users.lname }}
+        <br/>
+<br/>
+    <label><b> Email id: </b></label>{{ users.email }}
+    <br/>
+    <br/>
+    <label><b>Password: </b> </label>  *********
+
+        <br/>
+    <br/>
+    <label><b>Contact no:</b> </label> {{ users.contact }}
+
+</fieldset>
+                <br/>
+                <fieldset>
+
+
+                    <legend>  <b>Beneficiary Purpose</b></legend>
+
+        <br/>
+                    <legend>
+        Verification Credentials:
+                    </legend>
+        <br/>
+                    <label><b>
+        Citizenship No:</b> </label> {{ ben.ctzen }}
+        <br/>
+                    <br/>
+                    <label><b>
+        Date of Birth:</b> </label> {{ ben.dob }}
+        <br/>
+                    <br/>
+
+        <legend>Beneficiaries:</legend>
+        <br/>
+                    <legend>
+        1.</legend> <label><b> Name: </b></label>{{ ben.b1_fname }} {{ ben.b1_mname }} {{ ben.b1_lname }}
+        <br/>
+                    <br/>
+                    <label><b> Citizenship No:</b></label>{{ ben.b1_ctzen }}
+                    <br/>
+                    <br/>
+                    <legend>
+        2.</legend>
+                    <label><b> Name:</b></label>{{ ben.b2_fname }} {{ ben.b2_mname }} {{ ben.b2_lname }}
+        <br/>
+                    <br/>
+                    <label><b> Citizenship No: </b></label>{{ ben.b2_ctzen }}
+
+
+</fieldset>
+            </form>
+        {% else %}
+            <form method="post" class="effect">
+
+
+                <fieldset>
+                    <legend> General </legend>
+                    <br/>
+
+                    <label>First Name: </label>{{ form.fname }}
+
+
+                    <font color="red"> * </font>
+                    {% if empty_errors.fname_empty %}
+                        <font color="red"> This field is required </font>
+                    {% else  %}
+                        {% if valid_errors.invalid_fname %}
+                            <span style="color: red; "> Please enter valid characters only. </span>
+                        {% endif %}
+                    {% endif %}
+                    <br/>
+                    <label>Middle Name: </label>{{ form.mname }}
+
+
+
+                    {% if valid_errors.invalid_mname %}
+                        <font color="red"> Please enter valid characters only. </font>
+                    {% endif %}
+                    <br/>
+                    <label>Last Name: </label>
+                    {{ form.lname }}
+
+                    <font color="red"> * </font>
+                    {% if empty_errors.lname_empty %}
+                        <font color="red"> This field is required </font>
+                    {% else  %}
+                        {% if valid_errors.invalid_lname %}
+                            <font color="red"> Please enter valid characters only. </font>
+                        {% endif %}
+                    {% endif %}
+                    <br/>
+                    <label>Contact No:</label> {{ form.contact }}
+
+
+
+                    {% if valid_errors.invalid_contact %}
+                        <font color="red"> Please enter valid characters only. </font>
+                    {% endif %}
+                    <br/>
+
+
+                    <label>e-Mail Id:</label>{{ form.email }}
+
+                    <span style="color: red; "> * </span>
+                    {% if empty_errors.email_empty %}
+                        <span style="color: red; "> This field is required </span>
+                    {% else %}
+                        {% if valid_errors.invalid_email %}
+                            <span style="color: red; "> This field is required </span>
+                        {% endif %}{% endif %}
+                </fieldset>
+                <br/>
+
+                <fieldset>
+                    <legend>
+                        Beneficiary Purpose
+                    </legend>
+                    <br/>
+                    <label>Date of Birth:</label>{{ form.dob_yr }}
+                    {{ form.dob_mth }}
+                    {{ form.dob_day }}
+
+                    <br/>
+                    <label>Citizenship No:</label>{{ form.citizenship_no }}
+                    <br/>
+                    <legend>
+                        <br/>
+                        Beneficiaries(Priority-wise):
+                    </legend>
+                    <br/>
+                    <legend>1.</legend><label>First Name</label>{{ form.b1_fname }}
+                    <br/><label>Middle Name:</label>{{ form.b1_mname }}
+                    <br/><label>Last Name:</label> {{ form.b1_lname }}
+                    <br/>
+                    <label>Citizenship No:</label>{{ form.b1_citizenship_no }}
+                    <br/>
+                    <legend>2.</legend><label>First Name</label>{{ form.b2_fname }}  <br/><label>Middle Name:</label>{{ form.b2_mname }} <br/><label>Last Name:</label> {{ form.b2_lname }}
+                    <br/>
+                    <label>Citizenship No:</label>{{ form.b2_citizenship_no }}
+                    <br/>
+
+                </fieldset>
+                <br/>
+
+                <div class="center_align">
+
+                    <input type ="submit" class="btn"  name ="save" value="Save Changes"/>
+
+                    <input type = "submit" class = "btn" name ="cancel" value="Cancel"/>
+                    </div>
+            </form>
+
+
+    {% endifequal %}
+
+    {% endifequal %}
+
+    {% ifequal submenu "changepass" %}
+        <form method="POST" class="effect">
+        <fieldset>
+        <legend>Change Password </legend>
+        <div class="center_align">
+            {% ifequal error 0 %}
+                <span style="color: #ffc711; "> <b>       Password changed successfully.</b></span>
+            {% endifequal %}
+        <br/>
+        <br/>
+        </div>
+
+        <label>
+        Current Password:
+        </label>
+        <input type = "password" name="cur_pass">
+            <span style="color: red; "> * </span>
+        {% if errors.incorrect_pass %}
+            <span style="color: red; "> Current password in incorrect </span>
+        {% endif %}
+        <br/>
+            <label>
+                New Password:
+            </label>
+            <input type = "password" name="new_pass">
+            <span style="color: red; "> * </span>
+
+            {% if errors.empty_error %}
+                <span style="color: red; "> This field is required </span>
+            {% else %}
+                {% if errors.limit_error %}
+                    <span style="color: red; "> Passwords must contain 6 to 32 characters.   </span>
+                {% endif %}
+
+            {% endif %}
+        <br/>
+            <label>
+                Confirm Password:
+            </label>
+            <input type = "password" name="conf_pass">
+
+            <span style="color: red; "> * </span>
+            {% if errors.mismatch_error %}
+                <span style="color: red; ">  Passwords didnt match. </span>
+            {% endif %}
+        <br/>
+        <br/>
+        <div class="center_align">
+        <input type = "submit"  class="btn"  name = "change" value = "Change Password">
+        </div>
+        </fieldset>
+        </form>
+    {% endifequal %}
+
+
+
+    {% ifequal submenu "topup" %}
+        <div class="center_align">
+        <b>
+        You can topup your ewallet balance through any of our partner banks.
+            </b>
+
+        <form class="effect">
+        <fieldset>
+
+            <div class="merc">
+                <a href="/project/banks/bank_1/signin" target="_blank">
+                    <img src="/static/images/sdb.png" alt="Siddhartha Development Bank" width="200" height="120" />
+                    <b>Siddhartha Development Bank</b>
+                </a>
+
+            </div>
+
+
+        <div class="merc">
+            <a href="http://www.machbank.com/" target="_blank">
+                <img src="/static/images/NMB.png" alt="NMB" width="200" height="120" />
+                <b>Nepal Machhapuchhre Bank</b>
+                
+            </a>
+        </div>
+        <br>
+
+        <div class="merc">
+            <a href="http://www.nccbank.com.np/" target="_blank" >
+                <img src="/static/images/NCC.png" alt="NCC" width="200" height="120" />
+                <b>Nepal Credit and Commerce Bank</b>
+            </a>
+        </div>
+        <div class="merc">
+            <a href="http://ctbanknepal.com/" target="_blank">
+                <img src="/static/images/ctbn.png" alt="CTBN" width="200" height="120" />
+                <b>Commerce and Trust Bank Limited</b>
+            </a>
+
+        </div>
+        <div class="merc">
+            <a href="http://tdbl.com.np/" target="_blank">
+                <img src="/static/images/TOURISM.png" alt="Nabil Bank" width="200" height="120" />
+                <b>Tourism Development Bank</b>
+            </a>
+        </div>
+            <div class="merc">
+                <a href="www.globalbanknepal.com/" target="_blank">
+                    <img src="/static/images/global.png" alt="Global" width="200" height="120" />
+                    <b>Global Bank</b>
+                </a>
+            </div>
+
+            </fieldset>
+        </form>
+        </div>
+    {% endifequal %}
+
+    {% ifequal submenu "tof" %}
+
+        <div class="center_align">
+            <b>
+                Transfer Balance to e-Wallet user.</b>
+        </div>
+
+        <form method = "post" class="effect">
+
+            <fieldset>
+                <legend>Fund Transfer </legend>
+            <div class ="center_align">
+                {% ifequal transfer_error 0 %}
+                    Request Successful.
+                {% else %}
+                    <span style="color:red; ">
+                {{ transfer_error }}
+                </span>
+                {% endifequal %}
+                <br/>
+        </div>
+
+            <br>
+
+            <label>eW Username:</label> <input type="text" name="ewusername">
+            <br/>
+            <label>Transfer Amount:</label> <input type="text" name="amount" >
+            <br/>
+            <div class="center_align">
+            <input type = "submit" class="btn" name= "transfer_button" value = "Transfer">
+            <br/>
+            </div>
+
+            </fieldset>
+
+        </form>
+    {% endifequal %}
+
+    {% ifequal submenu "mpayment" %}
+        <div class="center_align">
+        <b>
+        Pay adsl bills</b>
+        </div>
+<form method="post" class= "effect">
+        <fieldset>
+            <legend>ADSL Bill</legend>
+            <div class ="center_align">
+                {% ifequal transfer_error 0 %}
+                    Request Successful.
+                {% else %}
+                    <span style="color:red; ">
+                {{ transfer_error }}
+                </span>
+                {% endifequal %}
+                <br/>
+            </div>
+
+            <br>
+
+            <label>Username(Phone No):</label> <input type="text" name="ewusername">
+            <br/>
+            <label>Amount:</label> <input type="text" name="amount" >
+            <br/>
+            <div class="center_align">
+                <input type = "submit" name= "transfer_button" accept="" class="btn" value = "Pay">
+                <br/>
+            </div>
+
+        </fieldset>
+</form>
+    {% endifequal %}
+
+    {% ifequal submenu "payonline" %}
+        
+        <form class ="effect">
+        <div class="center_align">
+            <b> You can use e-Wallet to pay various online bills. e-Wallet is now available on following vendors.</b>
+            </div>
+            <br/>
+            <br/>
+         
+            <fieldset>
+      <legend><b>Pay Online</b></legend>
+
+                <br>
+                <br/>
+                <div class ="center_align">
+            <div class="merc">
+                <a href="http://webill.ntc.net.np/newpstn/" target="_blank">
+                <img src="/static/images/1.png" alt="ADSL Bills" />
+                <b>Pay Your Telephone Bills.</b>
+                </a>
+                </div>
+                <div class="merc">
+                  <a href="http://www.bhatbhatenionline.com/" target="_blank">
+                <img src="/static/images/3.png" alt="Online Payments" />
+
+                    <b>Pay your Bhatbhateni Shopping Bills.</b>
+                  </a>
+                </div>
+                    <br>
+
+                <div class="merc">
+                    <a href="http://www.harilo.com/" target="_blank" >
+                    <img src="/static/images/2.jpg" alt="Online Payments" />
+                    <b>Order any items on Harilo and make your payments from e-Wallet.</b>
+                    </a>
+                </div>
+                    <div class="merc">
+                        <a href="http://www.broadlink.com.np/" target="_blank">
+                        <img src="/static/images/4.png" alt="Online Payments" />
+                        <b>Pay Your Broadlink Internet Bills.</b>
+                        </a>
+
+                    </div>
+                    <div class="merc">
+                        <a href="http://www.yetiairlines.com/" target="_blank">
+                        <img src="/static/images/5.png" alt="Online Payments" />
+                        <b>Buy Flight Tickets for Yeti Airlines.</b>
+                        </a>
+                    </div>
+                    <div class="merc">
+                        <a href="http://giftmandu.com/" target="_blank">
+                        <img src="/static/images/6.png" alt="Online Payments" />
+                        <b>Send gift to your beloved with easy gift-purchase.</b>
+                        </a>
+
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+    {% endifequal %}
+
+    {% ifequal submenu "buycards" %}
+        buy cards
+    {% endifequal %}
+
+
+
+
+
+
+
+
+
+
+
+{#    Welcome {{ user }}.#}
+{#    <br/>#}
+{#    Your balance is Rs.#}
+{#    <br/>#}
+{#    <font class="" color = "#00008b"></font>#}
+{#    <form method = "post" >#}
+{#        <br/>#}
+{#        Transfer Balance to e-Wallet.#}
+{#        <br>#}
+{##}
+{#        eW Username: <input type="text" name="ewusername" class="">#}
+{#        <br/>#}
+{#        Transfer Amount: <input type="text" name="amount" >#}
+{#        <br/>#}
+{#        <input type = "submit" name= "transfer_button" value = "Transfer">#}
+{##}
+{#        {% if success %}#}
+{#            Request Successful.#}
+{#        {% endif %}#}
+{#        <br/>#}
+{##}
+{#    </form>#}
+{##}
+{#    <a href="127.0.0.1:8000/project/ewallet/{{ user }}/edit">Edit</a>#}
+    <br/>
+</div>
+</div>
+
+    <div id="footer">
+        <div id="copyright">
+            Copyright © 2013  |
+            All rights reserved |
+            <a href="/project/ewallet/home/" target="_parent"> e-Wallet</a>
+            {#    Validate <a href="http://validator.w3.org/check?uri=referer">XHTML</a> &amp;#}
+            {#    <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>#}
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
+

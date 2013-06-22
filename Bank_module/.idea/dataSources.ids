@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Django default" product="" version="" jdbc-version="" driver-version="" uuid="32ca7272-a08b-4511-8208-6dd6b2162260">
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql:///bank_1</jdbc-url>
+    <user-name>root</user-name>
+    <libraries>
+      <library>
+        <url>file://</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Django bank_2" product="" version="" jdbc-version="" driver-version="" uuid="b916d81d-fb8a-4bd2-83de-e4ee509896c6">
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql:///bank_2</jdbc-url>
+    <user-name>root</user-name>
+    <libraries>
+      <library>
+        <url>file://</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Django " product="" version="" jdbc-version="" driver-version="" uuid="64d83c45-4a97-41c1-a33e-5c0f986ca3b0">
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql:///bank_2</jdbc-url>
+    <user-name>root</user-name>
+    <libraries>
+      <library>
+        <url>file://</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Django bank_1" product="" version="" jdbc-version="" driver-version="" uuid="e9b537d6-302d-4553-bea9-9ab2b4a0969e">
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql:///bank_1</jdbc-url>
+    <user-name>root</user-name>
+    <libraries>
+      <library>
+        <url>file://</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Django bank_2default" product="" version="" jdbc-version="" driver-version="" uuid="580a696a-a83b-45fc-ab6d-54d62e7fca2e">
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql:///bank_1</jdbc-url>
+    <user-name>root</user-name>
+    <libraries>
+      <library>
+        <url>file://</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Django ewallet" product="" version="" jdbc-version="" driver-version="" uuid="01a63223-b104-4092-bdeb-ca2e3732cae9">
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql:///ewallet</jdbc-url>
+    <user-name>root</user-name>
+    <libraries>
+      <library>
+        <url>file://</url>
+      </library>
+    </libraries>
+  </data-source>
+</component>

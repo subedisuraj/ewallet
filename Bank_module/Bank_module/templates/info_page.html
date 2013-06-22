@@ -1,0 +1,255 @@
+<!DOCTYPE html >
+<html>
+    <head>
+
+        <title>e-Wallet</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="eWallet, online payment nepal, online banking" />
+        <meta name="description" content="e-Wallet is a online money wallet. It helps you to store your cash money in your e-Wallet and spend it in any online payment sites." />
+        <link rel ="shortcut icon" href="/static/images/logo.png"/>
+        <link href="/static/css/ewhomestyle.css" rel="stylesheet" type="text/css" />
+        <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="/static/css/screen.css" rel="stylesheet" type="text/css" />
+    </head>
+<body>
+
+<div id="page_wrapper" >  {# First layer- Paints the whole page with lowermost background. #}
+    <div id="templatemo_wrapper_outer"> {# second layer- paints with footer bar #}
+        <div id="templatemo_wrapper"> {# Third layer - the content layer between the margin #}
+
+
+
+
+	<div id="temmplatmeo_header"> {# header layer containing small menu  #}
+    
+{#   		<div id="site_title">#}
+{#           	<a href="/project/ewallet/home/" target="_parent">#}
+{#            	e-Wallet#}
+                   {# e-Wallet logo here #}
+{#            </a>#}
+{#        </div>#}
+    
+    	<div id="templatemo_menu">
+        
+            <ul>
+
+                <li><a href="/project/ewallet/home/" >home</a></li>
+                <li><a href="/project/ewallet/register/" >register</a></li>
+                <li><a href="/project/ewallet/home/">login</a></li>
+                <li><a href="/project/ewallet/contact/">contact</a></li>
+
+            </ul>    	
+        
+        </div>
+    
+    </div>
+
+
+    <div id="upper_layer">{# main content layer- central part #}
+            <div id="templatemo_banner"> {# layer containing the banner  #}
+
+    	<div class="banner_image">
+            <span></span><img src="/static/images/ew.png" alt="Free Photo" />
+        </div>
+
+
+
+        <h2>What is e-Wallet?</h2>
+        <p>e-Wallet is a online money wallet. It helps you to store your cash money in your e-Wallet and spend it in any online payment sites.</p>
+      <div class="button_01 float_r"><a href="/project/ewallet/about/">More...</a></div>
+    	
+    
+        </div> <!-- end of templatemo_banner -->
+
+    <div id="templatemo_big_menu">          {# big menu bar #}
+        <ul>
+            <li><a href="/project/ewallet/home/"  >Home</a></li>
+            <li><a href="/project/ewallet/register/" >Register</a></li>
+{#            <li><a href="/project/ewallet/security/" {% ifequal page "security"  %} class="current"{% endifequal %}>Security</a></li>#}
+            <li><a href="/project/ewallet/about/" {% ifequal page "about"  %} class="current"{% endifequal %}>About</a></li>
+            <li><a href="/project/ewallet/faq/"{% ifequal page "faq"  %} class="current"{% endifequal %}>FAQ</a></li>
+            <li><a href="/project/ewallet/contact/"{% ifequal page "contact"  %} class="current"{% endifequal %} {% ifequal page "pwreset"  %} class="current"{% endifequal %}>Contact</a></li>
+
+        </ul>
+    </div>
+
+        <div id="templatemo_content_wrapper">
+
+         {% ifequal page "pwreset"  %}
+
+
+                <form method="POST" class ="effect">
+
+
+                    <br/>
+
+<b>
+                    Please submit your email address and we will send you the password reset code.
+    </b>
+                <br/>
+<br/>
+
+                    <label>
+                      Email:
+                    </label>
+                    <input type = "text" name="email">
+                {% if error1 %}
+                    <span style="color: #ff2f0b; ">   {{   error1 }} </span>
+                {% endif %}
+                    <br/>
+                <div class ="tab">
+                    <input type = "submit" name = "emailsubmit" class="btn" value = "Submit">
+                </div>
+                    {% if success1 %}
+                        <span style="color: #9a90d4; ">        A password reset code has been sent to your email. Please check your email.</span>
+                    {% endif %}
+
+
+
+
+
+<br/>
+{#                <br/>#}
+{#               <b> Already got a reset code? Submit here.</b>#}
+{#                <br/>#}
+{#                <br/>#}
+{#                <label>#}
+{#                    Username:#}
+{#                </label>#}
+{#                <input type ="text" name ="username">#}
+{#                    {% if error2 %}#}
+{#                        <span style="color: #ff2f0b; ">   {{   error2 }} </span>#}
+{#                    {% endif %}#}
+{#                <br/>#}
+{#                <label>#}
+{#                    Reset Code:#}
+{#                </label>#}
+{#                <input type = "text" name = "code">#}
+{#                <br/>#}
+{#                    <div class ="tab">#}
+{##}
+{#                    <input type = "submit" name = "codesubmit" class="btn" value="Submit">#}
+</div>
+{#                    {% if success2 %}#}
+{#                        <span style="color: #8a53cf; ">    A new password has been sent to your email. Please check your email , login with the new password and change your password as soon as possible.</span>#}
+{#                    {% endif %}#}
+                </form>
+
+
+            {% endifequal %}
+
+            {% ifequal page "contact"  %}
+                Contact
+
+        {% endifequal %}
+
+
+        {% ifequal page "pwr"  %}
+            <form method="post" class="effect">
+                <fieldset>
+                    <legend>Reset Password </legend>
+                    <div class="center_align">
+                        {% ifequal success 1 %}
+                            <span style="color: #ffc711; "> <b>       Password changed successfully.</b></span>
+                        {% endifequal %}
+                        <br/>
+                        <br/>
+                    </div>
+
+{% ifequal success 0  %}
+                    <br/>
+                    <label>
+                        New Password:
+                    </label>
+                    <input type = "password" name="new_pass">
+    <span style="color: red; "> * </span>
+
+
+
+                    <br/>
+                    <label>
+                        Confirm Password:
+                    </label>
+                    <input type = "password" name="conf_pass">
+
+                    <span style="color: red; "> * </span>
+    <br>
+                    {% if error %}
+
+                        <span class="tab" style="color: red; ">  {{ error }} </span>
+                    {% endif %}
+                    <br/>
+                    <br/>
+                    <div class="center_align">
+                        <input type = "submit"  class="btn"  name = "change" value = "Change Password">
+                    </div>
+                {% endifequal %}
+                </fieldset>
+            </form>
+
+
+
+
+
+    {% endifequal %}
+            {% ifequal page  "faq"  %}
+                <form class="effect">
+               <b> 1.	Any cost required for registration process? </b>
+                <br>
+                No, but you will be started with zero balance.
+                <br>
+
+                <b>  2.	Will I be charged for e-sewa services</b>
+                <br>
+                Paying utility bills doesnot cost you any charges but other services like bank-bank money transaction may cost some charges but will be pretty minimal.
+                <br><b>  3.	How can I recharge my E-wallet account?</b>
+                <br>  There’s an option in partners bank to transfer to e-wallet account.
+                <br>  <b>4.	Can I transfer fund to next E-wallet account?</b>
+                <br>  Yes, you can.
+                <br>  <b> 5.	Is wired transfer possible in Nepal?</b>
+                <br>  No. (According to sir)
+                <br>  <b>  6.	How good is your system?</b>
+                <br>  Till today its pretty good. We can proudly say that our security system cannot be trespassed. But in case any trespassing, our money will be lost, you will get back your payments.
+                <br>  <b>  7.	Can I withdraw my money back from e-wallet?</b>
+                <br> No
+                <br> <b>  8.	Is there mobile service of e-wallet?(edit the point)</b>
+                <br>  Not yet but we are planning to extend in near future.
+                <br>  <b>   9.	Why E-wallet when we already have such facilities?</b>
+                <br>  Because we have broad range of connection which will compete ad probably outpast other competitors.
+
+</form>
+            {% endifequal %}
+            {% ifequal page "security"  %}
+               security
+            {% endifequal %}
+            {% ifequal page "about"  %}
+                about
+
+            {% endifequal %}
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+</div>
+
+    </div>
+<div id="footer">
+<div id="copyright">
+    Copyright © 2013  |
+    All rights reserved |
+    <a href="/project/ewallet/home/" target="_parent"> e-Wallet</a>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>

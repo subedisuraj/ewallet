@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+    <title>
+        {{ bank }}|| Admin
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="eWallet, online payment nepal, online banking" />
+    <meta name="description" content="e-Wallet is a online money wallet. It helps you to store your cash money in your e-Wallet and spend it in any online payment sites." />
+    <link rel ="shortcut icon" href="/static/images/logo.png"/>
+    <link href="/static/css/ewhomestyle.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/screen.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+        function altRows(id){
+            if(document.getElementsByTagName){
+
+                var table = document.getElementById(id);
+                var rows = table.getElementsByTagName("tr");
+
+                for(i = 0; i < rows.length; i++){
+                    if(i % 2 == 0){
+                        rows[i].className = "evenrowcolor";
+                    }else{
+                        rows[i].className = "oddrowcolor";
+                    }
+                }
+            }
+        }
+        window.onload=function(){
+            altRows('alternatecolor');
+        }
+    </script>
+
+
+    <style type="text/css">
+        table.altrowstable {
+            /*font-family: "Times New Roman";*/
+            /*font-size:11px;*/
+            color:#333333;
+            border-width: 3px;
+            border-color: #a9c6c9;
+            border-collapse: collapse;
+        }
+        table.altrowstable th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9c6c9;
+        }
+        table.altrowstable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9c6c9;
+        }
+        .oddrowcolor{
+            background-color: #8bb2e3;
+        }
+        .evenrowcolor{
+            background-color: #2ce4ff;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="page_wrapper" >  {# First layer- Paints the whole page with lowermost background. #}
+    <div id="templatemo_wrapper_outer"> {# second layer- paints with footer bar #}
+        <div id="templatemo_wrapper"> {# Third layer - the content layer between the margin #}
+
+
+<br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+<div class ="center_align">
+    <form method = "POST" class="effect">
+    {{ bank }}
+    <br>
+        Admin logged in.
+        <div class="right_align">
+            <input type="submit" name="logout" class="btn" value= "Log Out">
+            <br/>
+        </div>
+<fieldset>
+   <legend><b>Settlements</b></legend>
+
+
+    <br/>
+    <br/>
+{% ifequal bank "ABC Bank" %}
+    <a href='/project/banks/bank_1/admin/incoming'>View Incoming Settlement Requests </a>
+    <div class ="tabinline">
+
+        <a href='/project/banks/bank_1/admin/outgoing'>View Outgoing Settlement Requests </a>
+
+
+    </div>
+    {% else %}
+    <a href='/project/banks/bank_2/admin/incoming'>View Incoming Settlement Requests </a>
+    <div class ="tabinline">
+
+        <a href='/project/banks/bank_2/admin/outgoing'>View Outgoing Settlement Requests </a>
+
+
+    </div>
+{% endifequal %}
+
+
+
+<br>
+        <input type="submit" class="btn" name="incoming" value="Accept Incoming Settlements">
+
+        <div class ="tabinline">
+
+            <input type ="submit" class="btn"  name ="outgoing" value="Settle Outgoing Transactions">
+
+
+        </div>
+  
+{% if view_in %}
+    {% if incoming %}
+
+        <table class="altrowstable" id="alternatecolor">
+        <tr>
+            <td class="span3">
+                From Account
+            </td>
+            <td class="span3">
+                To Account
+            </td>
+            <td class="span2">
+                From Bank
+            </td>
+            <td class="span2">
+                Amount
+            </td>
+        </tr>
+            {% for j in incoming %}
+
+            <tr>
+
+               <td>
+                   {{ j.from_account  }}
+               </td>
+                <td>
+                    {{ j.to_account   }}
+                </td>
+                <td>
+                    {{ j.from_bank }}
+                </td>
+                <td>
+                    {{ j.amount  }}
+                </td>
+
+           </tr>
+            {% endfor %}
+        </table>
+{% else %}
+        <br>
+        No Pending Settlements.
+    {% endif %}
+{% endif %}
+        <br/>
+        <br/>
+<br/>
+{% if view_out %}
+{% if outgoing %}
+    <table class="altrowstable" id="alternatecolor">
+        <tr>
+            <td class="span3">
+                From Account
+            </td>
+            <td class="span3">
+                To Account
+            </td>
+            <td class="span2">
+                To Bank
+            </td>
+            <td class="span2">
+                Amount
+            </td>
+        </tr>
+        {% for j in outgoing %}
+
+            <tr>
+
+                <td>
+                    {{ j.from_account  }}
+                </td>
+                <td>
+                    {{ j.to_account   }}
+                </td>
+                <td>
+                    {{ j.to_bank }}
+                </td>
+                <td>
+                    {{ j.amount  }}
+                </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <br>
+    No Pending Requests.
+
+{% endif %}
+{% endif %}
+<br/>
+</fieldset>
+
+<br/>
+    <fieldset>
+        <legend> <b>Deposit Money!</b></legend>
+    <br/>
+    Account No: <input type="text" name="account_no">
+    <br/>
+    Pin Number: <input type="password" name="pin_no" >
+    <br/>
+    Amount(Rs): <input type="text" name="amount">
+    <br/>
+
+    <input type="submit"  class="btn" name="deposit" value= "Deposit">
+<br/>
+<br/>
+    {% if success %}
+    Request Successful
+        {% else %}
+        {% if valuerror %}
+            <span style ="color: red" ><b>Value Error!!</b></sapn>
+        {% endif %}
+    {% endif %}
+</fieldset>
+</form>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

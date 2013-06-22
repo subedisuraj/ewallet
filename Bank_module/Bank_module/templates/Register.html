@@ -1,0 +1,140 @@
+
+
+<html>
+<head>
+
+    <title>{{ bank }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="eWallet, online payment nepal, online banking" />
+    <meta name="description" content="e-Wallet is a online money wallet. It helps you to store your cash money in your e-Wallet and spend it in any online payment sites." />
+    <link rel ="shortcut icon" href="/static/images/logo.png"/>
+    <link href="/static/css/ewhomestyle.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/screen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div id="page_wrapper" >  {# First layer- Paints the whole page with lowermost background. #}
+    <div id="templatemo_wrapper_outer"> {# second layer- paints with footer bar #}
+        <div id="templatemo_wrapper"> {# Third layer - the content layer between the margin #}
+
+        <br/>
+            <br/>
+            <br/>
+    <form method="post">
+    <table>
+       <div class ="center_align"> <b>Welcome to {{ bank }}.</b></div>
+    <br>
+    <label>Account No: </label>{{ form.account_no }}
+        <font color="red"> * </font>
+        {% if empty_errors.account_no_empty %}
+            <font color="red"> This field is required </font>
+        {% else  %}
+            {% if valid_errors.invalid_account_no %}
+                <font color="red"> Invalid Account Number. Please enter a valid account number. </font>
+                {% else %}
+                {% if valid_errors.unavailable_account %}
+                    <font color="red"> This account number has already been registered. </font>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    <br/>
+    <label> Pin No: </label> {{ form.pin_no }}
+        <font color="red"> * </font>
+        {% if empty_errors.pin_empty %}
+        <font color="red"> This field is required </font>
+            {% else %}
+            {% if valid_errors.invalid_pin %}
+                <font color="red"> Invalid Pin Number. </font>
+
+                {% else %}
+                {% if valid_errors.pin_mismatch %}
+                    <font color="red"> Account no. and pin-number didnt match. </font>
+
+                    {% endif %}
+                {% endif %}
+        {% endif  %}
+    <br/>
+        <label>Name: </label>{{ form.name }}
+        <font color="red"> * </font>
+        {% if empty_errors.name_empty %}
+            <font color="red"> This field is required </font>
+        {% else  %}
+        {% if valid_errors.invalid_name %}
+            <font color="red"> Please enter valid characters only. </font>
+        {% endif %}
+        {% endif %}
+        <br/>
+        <label>Username: </label> {{ form.username }}
+        <font color="red"> * </font>
+        {% if empty_errors.username_empty %}
+            <font color="red"> This field is required </font>
+        {% else  %}
+            {% if valid_errors.invalid_username %}
+                <font color="red"> Please enter valid characters only. </font>
+            {% else %}
+        {% if valid_errors.unavailable_username %}
+            <font color="red"> This username is unavailable. Please choose another username. </font>
+            {% else %}
+            {% if valid_errors.limit_username %}
+                <font color="red"> Username must be of 4-32 character. </font>
+        {% endif %}
+            {% endif %}
+            {% endif %}
+        {% endif %}
+
+        <br/>
+        <label>Password: </label>{{ form.password }}
+        <font color="red"> * </font>
+        {% if empty_errors.password_empty %}
+            <font color="red"> This field is required </font>
+            {% else %}
+            {% if valid_errors.limit_password %}
+                <font color="red"> Password length must be of 6-32 characters. </font>
+        {% endif %}
+        {% endif %}
+        <br/>
+        <label>Confirm Password:</label>{{ form.confirm_password }}
+        <font color="red"> * </font>
+        {% if valid_errors.invalid_conf_password %}
+            <font color="red"> Passwords didnt match. </font>
+        {% endif %}
+
+        <br/>
+
+        {% if invalid_errors.unknown %}
+            <font color="red"> ERROR </font>
+        {% endif %}
+
+
+
+
+
+
+{#    {{ regis_form }}#}
+    </table>
+{#    <form method = "post">#}
+{#		Name : <input type = "text" name = "name">#}
+{#		<br/>#}
+{#		Username : <input type="text" name = "username">#}
+{#		<br/>#}
+{#		Password : <input type ="text" name = "password">#}
+{#		<br/>#}
+{#		Confirm Password: <input type = "text" name="conf_password">#}
+{#		<br/>#}
+    <div class="medtab">
+		<input type ="submit" class="btn" name ="register_button" value="Register Now"/>
+		<br/>
+        <br/>
+        Already got account?
+        <br>
+        <input type = "submit" class="btn" name ="sign_button" value="Sign in"/>
+    </form>
+        </div>
+    </div>
+    </div></div>
+{#    <a href="127.0.0.1:8000/project/ewallet/{{ user }}/edit">Edit</a>#}
+	</body>
+
+
+</html>

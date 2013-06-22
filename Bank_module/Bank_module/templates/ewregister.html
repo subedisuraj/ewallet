@@ -1,0 +1,257 @@
+<!DOCTYPE html >
+<html>
+<head>
+
+    <title>e-Wallet</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="eWallet, online payment nepal, online banking" />
+    <meta name="description" content="e-Wallet is a online money wallet. It helps you to store your cash money in your e-Wallet and spend it in any online payment sites." />
+    <link rel ="shortcut icon" href="/static/images/logo.png"/>
+    <link href="/static/css/ewhomestyle.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/screen.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+<div id="page_wrapper" >  {# First layer- Paints the whole page with lowermost background. #}
+<div id="templatemo_wrapper_outer"> {# second layer- paints with footer bar #}
+<div id="templatemo_wrapper"> {# Third layer - the content layer between the margin #}
+
+
+
+
+    <div id="temmplatmeo_header"> {# header layer containing small menu  #}
+
+{#        <div id="site_title">#}
+{#            <a href="/project/ewallet/home/" target="_parent">#}
+{#                e-Wallet#}
+                {# e-Wallet logo here #}
+{#            </a>#}
+{#        </div>#}
+
+        <div id="templatemo_menu">
+
+            <ul>
+
+                <li><a href="/project/ewallet/home/" >home</a></li>
+                <li><a href="/project/ewallet/register/">register</a></li>
+                <li><a href="/project/ewallet/home/">login</a></li>
+                <li><a href="/project/ewallet/contact/">contact</a></li>
+
+            </ul>
+
+        </div> <!-- end of templatemo_menu -->
+
+    </div> <!-- end of templatemo_header -->
+
+
+    <div id="upper_layer">{# main content layer- central part #}
+        <div id="templatemo_banner"> {# layer containing the banner  #}
+
+            <div class="banner_image"><span></span><img src="/static/images/ew.png" alt="Free Photo" /></div>
+
+            {# banner image or logo image here #}
+
+            <h2>What is e-Wallet?</h2>
+            <p>e-Wallet is a online money wallet. It helps you to store your cash money in your e-Wallet and spend it in any online payment sites.</p>
+            <div class="button_01 float_r"><a href="/project/ewallet/about/">More...</a></div>
+
+
+        </div> <!-- end of templatemo_banner -->
+
+        <div id="templatemo_big_menu">          {# big menu bar #}
+            <ul>
+                <li><a href="/project/ewallet/home/" >Home</a></li>
+                <li><a href="/project/ewallet/register/"class="current" >Register</a></li>
+{#                <li><a href="/project/ewallet/security/">Security</a></li>#}
+                <li><a href="/project/ewallet/about/">About</a></li>
+                <li><a href="/project/ewallet/faq/">FAQ</a></li>
+                <li><a href="/project/ewallet/contact/">Contact</a></li>
+            </ul>
+        </div>
+
+        <div id="templatemo_content_wrapper">
+            <h2>{{ page }}</h2>
+            <hr>
+            {{ page }}
+<div id="center_align">
+
+    <span style="color: #3865ff; "> <b> Welcome to e-Wallet.</b> </span>
+</div>
+            <form method="post" class="effect">
+
+                   
+                    <fieldset>
+                    <legend> General </legend>
+                    <br/>
+
+                    <label>First Name: </label>{{ form.fname }}
+
+
+                    <font color="red"> * </font>
+                    {% if empty_errors.fname_empty %}
+                        <font color="red"> This field is required </font>
+                    {% else  %}
+                        {% if valid_errors.invalid_fname %}
+                            <span style="color: red; "> Please enter valid characters only. </span>
+                        {% endif %}
+                    {% endif %}
+                    <br/>
+                    <label>Middle Name: </label>{{ form.mname }}
+
+
+
+                    {% if valid_errors.invalid_mname %}
+                        <font color="red"> Please enter valid characters only. </font>
+                    {% endif %}
+                        <br/>
+                    <label>Last Name: </label>
+                    {{ form.lname }}
+
+                    <font color="red"> * </font>
+                    {% if empty_errors.lname_empty %}
+                        <font color="red"> This field is required </font>
+                    {% else  %}
+                        {% if valid_errors.invalid_lname %}
+                            <font color="red"> Please enter valid characters only. </font>
+                        {% endif %}
+                    {% endif %}
+                    <br/>
+                    <label>Contact No:</label> {{ form.contact }}
+
+
+
+                    {% if valid_errors.invalid_contact %}
+                        <font color="red"> Please enter valid characters only. </font>
+                    {% endif %}
+                    <br/>
+                    </fieldset>
+            <br/>
+                <fieldset>
+                  <legend> Account </legend>
+                    <br/>
+                    <label>Username: </label> {{ form.username }}
+
+                    <font color="red"> * </font>
+                    {% if empty_errors.username_empty %}
+                        <font color="red"> This field is required </font>
+                    {% else  %}
+                        {% if valid_errors.invalid_username %}
+                            <font color="red"> Please enter valid characters only. </font>
+
+                        {% else %}
+                            {% if valid_errors.unavailable_username %}
+                                <font color="red"> This username is unavailable. Please choose another username. </font>
+
+                            {% else %}
+                            {% if valid_errors.limit_username %}
+                                <font color="red"> Username must be of 4-32 characters.</font>
+                            {% endif %}
+
+                        {% endif %}
+                    {% endif %}
+                    {% endif %}
+                    <br/>
+
+                    <label>e-Mail Id:</label>{{ form.email }}
+
+                    <span style="color: red; "> * </span>
+                    {% if empty_errors.email_empty %}
+                        <span style="color: red; "> This field is required </span>
+                    {% else %}
+                        {% if valid_errors.invalid_email %}
+                            <span style="color: red; "> This field is required </span>
+                        {% endif %}{% endif %}
+                    <br/>
+                    <label>Password:</label>{{ form.password }}
+
+                    <font color="red"> * </font>
+                    {% if empty_errors.password_empty %}
+                        <span style="color: red; "> This field is required </span>
+                       {% else %}
+                        {% if valid_errors.limit_password%}
+                            <span style="color: red; "> Passwords must contain 6 to 32 characters.   </span>
+                                {% endif %}
+
+                    {% endif %}
+                    <br/>
+                    <label>Confirm Password:</label>{{ form.confirm_password }}
+
+                    <span style="color: red; "> * </span>
+                    {% if valid_errors.invalid_conf_password %}
+                        <span style="color: red; ">  Passwords didnt match. </span>
+                    {% endif %}
+
+
+
+                    {% if invalid_errors.unknown %}
+                        <span style="color: red; "> ERROR </span>
+                    {% endif %}
+                    <br/>
+
+                </fieldset>
+
+                <br/>
+                <fieldset>
+                    <legend>
+                     Beneficiary Purpose
+                    </legend>
+                    <br/>
+                    <label>Date of Birth:</label>{{ form.dob_yr }}
+                    {{ form.dob_mth }}
+                    {{ form.dob_day }}
+
+                    <br/>
+                    <label>Citizenship No:</label>{{ form.citizenship_no }}
+                    <br/>
+                    <legend>
+                        <br/>
+                    Beneficiaries(Priority-wise):
+                    </legend>
+                    <br/>
+                    <legend>1.</legend><label>First Name</label>{{ form.b1_fname }}
+                    <br/><label>Middle Name:</label>{{ form.b1_mname }}
+                    <br/><label>Last Name:</label> {{ form.b1_lname }}
+                    <br/>
+                    <label>Citizenship No:</label>{{ form.b1_citizenship_no }}
+                    <br/>
+                    <legend>2.</legend><label>First Name</label>{{ form.b2_fname }}  <br/><label>Middle Name:</label>{{ form.b2_mname }} <br/><label>Last Name:</label> {{ form.b2_lname }}
+                    <br/>
+                    <label>Citizenship No:</label>{{ form.b2_citizenship_no }}
+                    <br/>
+
+                </fieldset>
+                <br/>
+
+<div class="center_align">
+
+                    <input type ="submit" class="btn"  name ="register_button" value="Register Now"/>
+                    <br/>
+<br/>
+
+                    Already got account?
+            <br/>
+                    <input type = "submit" class = "btn" name ="sign_button" value="Sign in"/>
+            </form>
+        </div>
+    </div>
+
+
+    </div>
+
+</div>
+<div id="footer">
+    <div id="copyright">
+        Copyright © 2013  |
+        All rights reserved |
+        <a href="/project/ewallet/home/" target="_parent"> e-Wallet</a>
+        {#    Validate <a href="http://validator.w3.org/check?uri=referer">XHTML</a> &amp;#}
+        {#    <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>#}
+    </div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
